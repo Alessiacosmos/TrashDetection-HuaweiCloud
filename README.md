@@ -30,5 +30,5 @@
  ```
 
 # TIPS
-  1. 提交报错 build model image failed，是因为模型编译失败 ----> `config.json`中指定的‘dependencies’无效<\br>
+  1. 提交报错 build model image failed，是因为模型编译失败 ----> `config.json`中指定的‘dependencies’无效<br>
   ModelArts内置torch==1.0.0, torchvision < 0.3.0，注意适配
