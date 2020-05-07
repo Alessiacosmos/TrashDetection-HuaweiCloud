@@ -1,0 +1,90 @@
+{
+
+  "model_algorithm": "object_detection",
+  "model_type": "PyTorch",
+  "runtime": "python3.6",
+  "apis": [
+    {
+      "procotol": "http",
+      "url": "/",
+      "method": "post",
+
+      "request": {
+        "Content-type": "multipart/form-data",
+        "data": {
+          "type": "object",
+          "properties": {
+            "images": {
+              "type": "file"
+            }
+          }
+        }
+      },
+
+
+      "response": {
+            "Content-type": "multipart/form-data",
+            "data": {
+                "type": "object",
+                "properties": {
+                    "detection_classes": {
+                        "type": "list",
+                        "items": [{
+                            "type": "string"
+                        }]
+                    },
+                    "detection_scores": {
+                        "type": "list",
+                        "items": [{
+                            "type": "number"
+                        }]
+                    },
+                    "detection_boxes": {
+                        "type": "list",
+                        "items": [{
+                            "type": "list",
+                            "minItems": 4,
+                            "maxItems": 4,
+                            "items": [{
+                                "type": "number"
+                            }]
+                        }]
+                    }//,
+//                    "latency_time": {
+//                        "type": "string"
+//
+//                    }
+                }
+            }
+        }
+
+    }
+
+  ],
+
+
+  "metrics": {
+    "f1": 0.0,
+    "recall": 0.0,
+    "precision": 0.0,
+    "accuracy": 0.0
+  },
+
+//  "dependencies": [{
+//        "installer": "pip",
+//        "packages": [
+//            {
+//                "restraint": "EXACT",
+//                "package_version": "1.4.0",
+//                "package_name": "torch"
+//            },
+//            {
+//                "restraint": "EXACT",
+//                "package_version": "0.5.0",
+//                "package_name": "torchvision"
+//            }
+//        ]
+//    }]
+
+
+}
