@@ -9,7 +9,7 @@
     
   2. Class PTVisionService(PTServingBaseService):
       def _preprocess(self, data):
-        我使进行数据预处理Normalizer和Resizer的数据格式为: sample={'img': img, 'img_name': img_name}
+        我自己进行数据预处理Normalizer和Resizer的数据格式为: sample={'img': img, 'img_name': img_name}
         修改为你自己进行归一化和Resizer的数据格式
         
       def _inference(self, data):
@@ -22,6 +22,10 @@
         
       def _postprocess(self, data):
         修改网络输出格式，以匹配‘save_json’函数所需输入，形成结果
+        
+      def inference(self, data):
+        无需更改
+      
  ```
 
 # TIPS
