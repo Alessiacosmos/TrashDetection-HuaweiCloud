@@ -2,8 +2,8 @@
 “华为云杯”2020深圳开放数据应用创新大赛·生活垃圾图片分类 Pytorch版本基础配置文件
 
 # How to use
+1. 已经编写好customize_service.py的pytorch基础引入方式，需要修改以适配你自己的网络输出
 ```
-  已经编写好customize_service.py的pytorch基础引入方式，需要修改以适配你自己的网络输出
   1. def YourNet()
     从 YourModelDict/model.py 导入你自己的model
     
@@ -27,6 +27,20 @@
         def inference(self, data):
             无需更改
       
+ ```
+ 2. 如何本地测试
+ ```
+  1. 修改 customizer_service.py ---> 
+      Class PTVisionService(PTServingBaseService): 为  Class PTVisionService(object):
+  
+  2. 删除 customizer_service.py ---> 
+      import部分modelarts相关的依赖
+  
+  3. 添加如下代码在customize_service.py的底部:
+      if __name__ == '__main__':
+      m = PTVisionService('model_name', 'your/model/path/model.pth')
+      data={'images':{'0':'./train_val/VOC2007/JPEGImages/img_12726.jpg'}}
+      m.inference(data)
  ```
 
 # TIPS
