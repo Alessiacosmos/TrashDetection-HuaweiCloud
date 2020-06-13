@@ -45,4 +45,5 @@
 
 # TIPS
   1. 提交报错 build model image failed，是因为模型编译失败 ----> `config.json`中指定的‘dependencies’无效<br>
-  ModelArts内置torch==1.0.0, torchvision < 0.3.0，注意适配
+  ModelArts内置torch==1.0.0/1.1.0, torchvision < 0.3.0，注意适配
+    1.1 根据大赛微信群里的消息，提交报错 build model image failed 的原因是：模型占用空间过大，导致模型编译不通过 ----> 若模型小，可以指定dependencies，若模型较大，不建议指定dependencies.
